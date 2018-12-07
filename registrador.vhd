@@ -13,7 +13,7 @@ begin
 		
 		registrador: process(clk)
 		begin 
-		 if (clk = '1' and clk Last_value = '0')
+		 if (rising_edge(clk))
 		 then 
 		  y <= x;
 		  end if;
