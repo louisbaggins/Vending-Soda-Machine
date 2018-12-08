@@ -3,8 +3,9 @@ use ieee.std_logic_1164.all;
 
 entity BlocOperacional_MQR is
 port (clk: in std_logic;
+		y	: in std_logic_vector(7 downto 0);
 		x	: in std_logic_vector(2 downto 0);
-		k	: out std_logic
+		TOT_LT_S	: out std_logic
 		);
 		
 end BlocOperacional_MQ
