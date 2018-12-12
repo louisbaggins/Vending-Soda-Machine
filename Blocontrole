@@ -39,4 +39,15 @@ entity Blocontrole is
                  end if;
                  when s2 =>
                  Tot_LD <= '1';
+                 proximoestado <= S1;
                  
+                 when S3 =>
+                 D = '1';
+                 proximoestado <= S0;
+                 
+                 end case;
+                 
+                 	end process;
+                    
+               end comportamento;
+             
