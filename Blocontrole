@@ -1,0 +1,42 @@
+library ieee;
+use ieee.std_logic_1164.all
+
+entity Blocontrole is
+ 	port( clk, rst: in std_logic;
+    		c, Tot_lt_s: in std_logic;
+    	D, Tot_LD, Tot_Clr: out std_logic
+        );
+        end Bloconrole;
+
+ architecture comportamento of Blocontrole is type signal is (S0, S1, S2, S3);
+ 	signal estadoatual, proximoestado: std_logic;
+    begin 
+    	regestado: process(clk, rst)
+        begin
+        	if (rst = '1') then 
+            	estadoatual <= S0; -- estado inicial
+                elsif(clk = '1' and clk'event) then
+                estado <= proximoestado;
+                end if;
+                end process;
+                
+                logicacomb: process (estadoatual, c, Tot_lt_s)
+                begin:
+                D <= '0';
+                Tot_LD <= '0';
+                Tot_Clr <= '1';
+                case estadoatual is
+                when s0 =>
+                proximoestado <= S1
+                when s1 =>
+                if(not(c) and Tot_lt_s = '1') then
+                proximoestado <= S1;
+                 elsif(c = '1') then
+                 	proximoestado = S2;
+                    else 
+                    proximoestado = s3;
+                    
+                 end if;
+                 when s2 =>
+                 Tot_LD <= '1';
+                 
