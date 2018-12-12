@@ -1,20 +1,10 @@
-library ieee;
-use ieee.std_logic_1164.all;
-
-entity BlocOperacional_MQR is
-port (clk: in std_logic;
-		y	: in std_logic_vector(7 downto 0);
-		x	: in std_logic_vector(2 downto 0);
-		TOT_LT_S	: out std_logic
-		);
-		
-end BlocOperacional_MQ
 
 architecture estrutura of BlocOperacional_MQ is
 	component registrador
-	port (x	: in std_logic_vector(7 downto 0);
+	port (x	: in std_logic_vector(2 downto 0);
+    		TOT_LD, TOT_CLR: in std_logic;
 			clk: in std_logic;
-		 	y	: out std_logic_vector(7 downto 0));
+		 	TOT_LT_S: out std_logic);
 end component
 
 component somador
@@ -31,3 +21,7 @@ component comparador
 port (	x, y	: in std_logic_vector(7 downto 0);
 		 	k	: out std_logic);
 end comparador;
+
+begin 
+	x:conversor
+	port map(x, y);
